@@ -15,3 +15,4 @@ function onSendForm(event) {
   }
   formEl.reset();
 }
+
