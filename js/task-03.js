@@ -14,20 +14,10 @@ const images = [
 ];
 
 const galleryEl = document.querySelector('.gallery');
-const arrayElements = [];
+const murkup = [];
 
-for (let i = 0; i < images.length; i += 1) {
-  const itemEl = document.createElement('li');
-  const imgEl = document.createElement('img');
+images.map((image, ind) => {
+  murkup.push(`<li><img class="gallery__img " src="${image.url}" alt="${image.alt}" /></li>`);
+});
 
-  imgEl.src = images[i].url;
-  imgEl.alt = images[i].alt;
-
-  itemEl.classList.add('gallery__item');
-  imgEl.classList.add('gallery__img');
-
-  itemEl.append(imgEl);
-  arrayElements.push(itemEl);
-}
-
-galleryEl.append(...arrayElements);
+galleryEl.insertAdjacentHTML('afterbegin', murkup.join(''));
