@@ -14,10 +14,10 @@ const images = [
 ];
 
 const galleryEl = document.querySelector('.gallery');
-const murkup = [];
+const murkup = images
+  .map(
+    (image, ind) => `<li><img class="gallery__img " src="${image.url}" alt="${image.alt}" /></li>`
+  )
+  .join('');
 
-images.map((image, ind) => {
-  murkup.push(`<li><img class="gallery__img " src="${image.url}" alt="${image.alt}" /></li>`);
-});
-
-galleryEl.insertAdjacentHTML('afterbegin', murkup.join(''));
+galleryEl.insertAdjacentHTML('afterbegin', murkup);
